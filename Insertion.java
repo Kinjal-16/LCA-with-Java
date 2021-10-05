@@ -22,7 +22,7 @@ public class Insertion
     {
         root = null;
     }
-    void create()
+    Node create()
     {
         Scanner sc=new Scanner(System.in);
         Insertion ob = new Insertion();
@@ -40,7 +40,8 @@ public class Insertion
             n=sc.nextInt();
             
         }
-        sc.close();
+        return root;
+        
         }
     
     void insert(Node temp)
@@ -69,25 +70,6 @@ public class Insertion
 
 
     }
-    public static void inorder(Node temp)
-    {
-        if (temp == null)
-            return;
 
-        inorder(temp.left);
-        System.out.print(temp.data + " ");
-        inorder(temp.right);
-    }
     
-    
-    public static void main(String args[])
-    {
-        Insertion ob = new Insertion();
-        ob.create();
-        inorder(root);
-        
-
-    }
-
-
 }
