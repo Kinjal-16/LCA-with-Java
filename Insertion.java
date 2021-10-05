@@ -10,21 +10,39 @@ class Node
         left = null;
         right=null;
     }
-   /* static Node create(int x)
-    {
-        Node ob = new Node(x);
-        return ob;
-    }*/
+
 
 }
 
+
 public class Insertion
 {
-    Node root;
+    static Node  root;
     Insertion()
     {
         root = null;
     }
+    void create()
+    {
+        Scanner sc=new Scanner(System.in);
+        Insertion ob = new Insertion();
+        
+        
+        System.out.println("Enter 0 to exit");
+        int n= sc.nextInt();
+        while(n!=0)
+        {
+            
+            
+            Node temp = new Node(n);
+            
+            ob.insert(temp);
+            n=sc.nextInt();
+            
+        }
+        sc.close();
+        }
+    
     void insert(Node temp)
     {
         Node temp2=root;
@@ -47,38 +65,27 @@ public class Insertion
              temp3.left=temp;
         else
             temp3.right=temp;
-        
-               
-            
+
+
+
     }
-    static void inorder(Node temp)
+    public static void inorder(Node temp)
     {
         if (temp == null)
             return;
- 
+
         inorder(temp.left);
         System.out.print(temp.data + " ");
         inorder(temp.right);
     }
-
-
-
+    
+    
     public static void main(String args[])
     {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("1. New number \n 2. Exit \n Enter 1 or 2");
-        int n= sc.nextInt();
-        if(n==1)
-        {
-            System.out.println("Enter a number");
-            int a = sc.nextInt();
-            Node temp = new Node(a);
-            Insertion ob = new Insertion();
-            ob.insert(temp);
-            
-        }
-        else 
-            System.exit(0);
+        Insertion ob = new Insertion();
+        ob.create();
+        inorder(root);
+        
 
     }
 
