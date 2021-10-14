@@ -9,7 +9,7 @@ public class Junit {
 
         LCA ob2 = new LCA();
         Insertion ob = new Insertion();
-        int a[] = {15, 10, 25, 8, 12, 20, 30, 6, 9, 18, 22};
+        int a[] = {13,8,22,7,12,20,30,6,9,18,21};
         int len = a.length;
         for (int i = 0; i < len; i++) {
             ob.create(a[i]);
@@ -49,10 +49,10 @@ public class Junit {
     void simpleAssertion() {
         LCA ob = new LCA();
         Assertions.assertAll(
-                () -> assertEquals(10, checkLCA1(6, 12)),
-                () -> assertEquals(10, checkLCA1(10, 12)),
-                () -> assertEquals(15, checkLCA1(20, 6)),
-                () -> assertEquals(20, checkLCA1(18, 22)),
+                () -> assertEquals(8, checkLCA1(6,12)),
+                () -> assertEquals(8, checkLCA1(8, 12)),
+                () -> assertEquals(13, checkLCA1(20, 6)),
+                () -> assertEquals(20, checkLCA1(18, 21)),
                 () -> assertEquals(30, checkLCA1(30, 30)));
 
         Assertions.assertAll(

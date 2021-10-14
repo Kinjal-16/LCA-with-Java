@@ -15,23 +15,7 @@ public class LCA {
 
 
     }
-    static int checkLCA(int x1,int x2)
-    {
 
-
-
-        LCA ob2 = new LCA();
-        Insertion ob = new Insertion();
-        int a[]={15,10,25,8,12,20,30,6,9,18,22};
-        int len = a.length;
-        for(int i=0;i<len;i++) {
-            ob.create(a[i]);
-
-        }
-        return(ob2.lca(ob.root,x1,x2));
-
-
-    }
 
 }
 
