@@ -15,34 +15,28 @@ class Node
 }
 
 
-public class Insertion
-{
-    static Node  root;
-    Insertion()
-    {
+public class Insertion {
+    static Node root;
+
+    Insertion() {
         root = null;
     }
-    Node create()
+
+    Node create(int n)
     {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Insertion ob = new Insertion();
-        
-        
-        System.out.println("Enter 0 to exit");
-        int n= sc.nextInt();
-        while(n!=0)
-        {
-            
-            
-            Node temp = new Node(n);
-            
-            ob.insert(temp);
-            n=sc.nextInt();
-            
-        }
+
+
+        Node temp = new Node(n);
+
+        ob.insert(temp);
+        n = sc.nextInt();
+
+
         return root;
-        
-        }
+
+    }
     
     void insert(Node temp)
     {

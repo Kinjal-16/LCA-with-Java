@@ -12,7 +12,7 @@ public class LCA {
         
     
     }
-    public static void main(String args[])
+   /* public static void main(String args[])
     {
         Node root=null;
         Scanner sc= new Scanner(System.in);
@@ -23,6 +23,6 @@ public class LCA {
         int b=sc.nextInt();
         System.out.println("LCA :"+lca(root,a,b));
 
-    }
+    }*/
 
 }
