@@ -64,5 +64,6 @@ public class Insertion {
     }
 
 
-
+    public void addEdge(int i, int i1) {
+    }
 }

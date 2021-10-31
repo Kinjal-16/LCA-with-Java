@@ -17,6 +17,11 @@ public class LCA {
     }
 
 
+    public int[] checkDAGLCA(int i, int i1) {
+        int [] LCA= new int[10];
+        return LCA;
+
+    }
 }
 
 
