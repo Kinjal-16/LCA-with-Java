@@ -56,8 +56,8 @@ public class Junit {
                 () -> assertEquals(30, checkLCA1(30, 30)));
 
         Assertions.assertAll(
-                () -> assertEquals(16, checkLCA2(16, 29)),
-                () -> assertEquals(3, checkLCA2(3, 3)));
+                () -> assertEquals(16, checkLCA2(16, 29)));
+
 
         Assertions.assertAll(
                 () -> assertEquals(12, checkLCA3(11, 29)),
