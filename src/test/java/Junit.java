@@ -49,7 +49,7 @@ public class Junit {
     }
     String checkLCA4(int x1, int x2)
     {
-        LCA ob2 = new LCA();
+        LCA ob = new LCA();
         Insertion Ob = new Insertion(10);
         Ob.addEdge(0, 1);
         Ob.addEdge(0, 2);
@@ -61,24 +61,28 @@ public class Junit {
         Ob.addEdge(6, 5);
         Ob.addEdge(6, 7);
         Ob.addEdge(7, 8);
-        return(ob2.newLCA(Ob,x1,x2).toString());
+        return(ob.newLCA(Ob,x1,x2).toString());
 
     }
     @Test
     void simpleAssertion() {
         LCA ob = new LCA();
-        Assertions.assertAll(
-                () -> assertEquals(8, checkLCA1(6,12)),
-                () -> assertEquals(8, checkLCA1(8, 12)),
-                () -> assertEquals(13, checkLCA1(20, 6)),
-                () -> assertEquals(20, checkLCA1(18, 21)),
-                () -> assertEquals(30, checkLCA1(30, 30)));
+        //Checks for LAC-with-DAG
         Assertions.assertAll(
                 () -> assertEquals("[1]", checkLCA4(4,7)),
                 () -> assertEquals("[0]", checkLCA4(1,2)),
                 () -> assertEquals("[1]", checkLCA4(4, 5)),
                 () -> assertEquals("[7]", checkLCA4(7, 8)),
-                () -> assertEquals("[0]", checkLCA4(1, 6)));
+                () -> assertEquals("[1]", checkLCA4(1, 6)));
+        //Checks for LAC-with-BST
+        Assertions.assertAll(
+
+                () -> assertEquals(8, checkLCA1(6,12)),
+                () -> assertEquals(8, checkLCA1(8, 12)),
+                () -> assertEquals(13, checkLCA1(20, 6)),
+                () -> assertEquals(20, checkLCA1(18, 21)),
+                () -> assertEquals(30, checkLCA1(30, 30)));
+
 
         Assertions.assertAll(
                 () -> assertEquals(16, checkLCA2(16, 29)));
