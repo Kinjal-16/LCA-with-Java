@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class Junit {
@@ -45,20 +47,26 @@ public class Junit {
         }
         return (ob2.lca(ob.root, x1, x2));
     }
+    String checkLCA4(int x1, int x2)
+    {
+        LCA ob2 = new LCA();
+        Insertion Ob = new Insertion(10);
+        Ob.addEdge(0, 1);
+        Ob.addEdge(0, 2);
+        Ob.addEdge(1, 4);
+        Ob.addEdge(1, 6);
+        Ob.addEdge(2, 3);
+        Ob.addEdge(2, 4);
+        Ob.addEdge(2, 6);
+        Ob.addEdge(6, 5);
+        Ob.addEdge(6, 7);
+        Ob.addEdge(7, 8);
+        return(ob2.newLCA(Ob,x1,x2).toString());
+
+    }
     @Test
     void simpleAssertion() {
         LCA ob = new LCA();
-        Insertion DAG = new Insertion();
-        DAG.addEdge(0, 1);
-        DAG.addEdge(0, 2);
-        DAG.addEdge(1, 4);
-        DAG.addEdge(1, 6);
-        DAG.addEdge(2, 3);
-        DAG.addEdge(2, 4);
-        DAG.addEdge(2, 6);
-        DAG.addEdge(6, 5);
-        DAG.addEdge(6, 7);
-        DAG.addEdge(7, 8);
         Assertions.assertAll(
                 () -> assertEquals(8, checkLCA1(6,12)),
                 () -> assertEquals(8, checkLCA1(8, 12)),
@@ -66,11 +74,11 @@ public class Junit {
                 () -> assertEquals(20, checkLCA1(18, 21)),
                 () -> assertEquals(30, checkLCA1(30, 30)));
         Assertions.assertAll(
-                () -> assertEquals(new int[]{1, 2}, ob.checkDAGLCA(4,7)),
-                () -> assertEquals(new int[]{0}, ob.checkDAGLCA(1,2)),
-                () -> assertEquals(new int[]{1,2}, ob.checkDAGLCA(4, 5)),
-                () -> assertEquals(new int[]{7}, ob.checkDAGLCA(7, 8)),
-                () -> assertEquals(new int[]{0}, ob.checkDAGLCA(1, 6)));
+                () -> assertEquals("[1]", checkLCA4(4,7)),
+                () -> assertEquals("[0]", checkLCA4(1,2)),
+                () -> assertEquals("[1]", checkLCA4(4, 5)),
+                () -> assertEquals("[7]", checkLCA4(7, 8)),
+                () -> assertEquals("[0]", checkLCA4(1, 6)));
 
         Assertions.assertAll(
                 () -> assertEquals(16, checkLCA2(16, 29)));
