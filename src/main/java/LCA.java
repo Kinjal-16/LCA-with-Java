@@ -41,6 +41,7 @@ public class LCA {
         }
 
         while (!level.isEmpty()) {
+
             int vertices = level.remove();
             if (Parents1[vertices]) {
                 LCA.add(vertices);
@@ -51,8 +52,10 @@ public class LCA {
                     nextLevel.add(x);
                 }
             }
-            level = nextLevel;
-            nextLevel = new LinkedList<>();
+            if(level.isEmpty()) {
+                level = nextLevel;
+                nextLevel = new LinkedList<>();
+            }
         }
 
         return LCA;
