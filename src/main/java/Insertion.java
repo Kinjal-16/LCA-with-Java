@@ -83,6 +83,51 @@ public class Insertion {
         list.add(w);
 
     }
+    //Reference:- Topological Sorting-Geekforgeeks
+    public String checkCycles(int V)
+    {
+
+
+        int indegree[] = new int[V];
+
+        for (int i = 0; i < V; i++) {
+            ArrayList<Integer> temp
+                    = (ArrayList<Integer>)adj[i];
+            for (int node : temp) {
+                indegree[node]++;
+            }
+        }
+        Queue<Integer> q = new LinkedList<Integer>();
+        for (int i = 0; i < V; i++) {
+            if (indegree[i] == 0)
+                q.add(i);
+        }
+
+
+        int count = 0;
+
+        Vector<Integer> topOrder = new Vector<Integer>();
+        while (!q.isEmpty()) {
+
+            int u = q.poll();
+            topOrder.add(u);
+
+
+            for (int node : adj[u]) {
+
+                if (--indegree[node] == 0)
+                    q.add(node);
+            }
+            count++;
+        }
+
+        // Check if there was a cycle
+        if (count != V) {
+
+            return "true";
+        }
+        return "false";
+    }
 
 }
 
