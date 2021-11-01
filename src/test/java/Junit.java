@@ -69,9 +69,9 @@ public class Junit {
         LCA ob = new LCA();
         //Checks for LAC-with-DAG
         Assertions.assertAll(
-                () -> assertEquals("[1]", checkLCA4(4,7)),
+                () -> assertEquals("[1, 2]", checkLCA4(4,7)),//two nodes at the same level
                 () -> assertEquals("[0]", checkLCA4(1,2)),
-                () -> assertEquals("[1]", checkLCA4(4, 5)),
+                () -> assertEquals("[1, 2]", checkLCA4(4, 5)),
                 () -> assertEquals("[7]", checkLCA4(7, 8)),
                 () -> assertEquals("[1]", checkLCA4(1, 6)));
         //Checks for LAC-with-BST

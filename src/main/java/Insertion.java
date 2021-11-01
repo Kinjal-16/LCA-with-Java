@@ -18,9 +18,7 @@ class Node
 public class Insertion {
     Node root;
     protected ArrayList<Integer>[] adj;
-    private boolean marked[];
-    private boolean hasCycle;
-    private boolean stack[];
+
 
     Insertion() {
     }
@@ -34,8 +32,6 @@ public class Insertion {
         for (int v = 0; v < V; v++) {
             adj[v] = new ArrayList<Integer>();
         }
-        marked = new boolean[V];
-        stack = new boolean[V];
 
     }
 
