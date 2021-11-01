@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class Junit {
+    Insertion Ob;
     int checkLCA1(int x1, int x2) {
 
 
@@ -50,7 +52,7 @@ public class Junit {
     String checkLCA4(int x1, int x2)
     {
         LCA ob = new LCA();
-        Insertion Ob = new Insertion(10);
+        Ob = new Insertion(10);
         Ob.addEdge(0, 1);
         Ob.addEdge(0, 2);
         Ob.addEdge(1, 4);
@@ -64,11 +66,29 @@ public class Junit {
         return(ob.newLCA(Ob,x1,x2).toString());
 
     }
+    String checkCycles()
+    {
+
+        Ob = new Insertion(10);
+        Ob.addEdge(0, 1);
+        Ob.addEdge(0, 2);
+        Ob.addEdge(1, 4);
+        Ob.addEdge(1, 6);
+        Ob.addEdge(2, 3);
+        Ob.addEdge(2, 4);
+        Ob.addEdge(2, 6);
+        Ob.addEdge(6, 5);
+        Ob.addEdge(6, 7);
+        Ob.addEdge(7, 8);
+        return(Ob.checkCycles(10));
+
+    }
     @Test
     void simpleAssertion() {
         LCA ob = new LCA();
         //Checks for LAC-with-DAG
         Assertions.assertAll(
+                () -> assertEquals("false",checkCycles()),
                 () -> assertEquals("[1, 2]", checkLCA4(4,7)),//two nodes at the same level
                 () -> assertEquals("[0]", checkLCA4(1,2)),
                 () -> assertEquals("[1, 2]", checkLCA4(4, 5)),
